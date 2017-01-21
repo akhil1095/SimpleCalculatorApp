@@ -1,0 +1,27 @@
+{
+  "name": "simplecalculatorapp",
+  "description": "Simple jQuery mobile Calculator App",
+  "main": "index.js",
+  "authors": [
+    "Akhil Thakkar"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Hybrid",
+    "Mobile",
+    "Apps"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Scripts/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.4",
+    "jquery-mobile-bower": "^1.4.5"
+  }
+}

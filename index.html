@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>My Demo Mobile Web App</title>
+  <!-- CSS Section -->
+  <link rel="stylesheet" href="/Scripts/lib/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css">
+</head>
+<body>
+
+  <!--  Home Page Container -->
+  <div data-role="page" data-theme="a" id="home">
+    <div data-role="header">
+      <h1>Header Content</h1>
+    </div>
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" data-transition="flip">Home</a></li>
+      <li><a href="#contact" data-icon="phone" data-transition="flip">Contact</a></li>
+    </ul>
+  </div>
+
+    <!-- Main Content goes here -->
+    <div data-role="main" class="ui-content">
+      <p>Page Content Goes Here</p>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h1>&copy 2017 All Rights Reserved</h1>
+    </div>
+  </div> <!-- end home page -->
+
+  <!--  Contact Page Container -->
+  <div data-role="page" data-theme="b" id="contact">
+    <div data-role="header">
+      <h1>Header Content</h1>
+    </div>
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" data-transition="flip">Home</a></li>
+      <li><a href="#contact" data-icon="phone" data-transition="flip">Contact</a></li>
+    </ul>
+  </div>
+
+    <!-- Main Content goes here -->
+    <div data-role="main" class="ui-content">
+      <p>Contact Page Content Goes Here</p>
+    </div>
+
+    <div data-role="footer">
+      <h1>&copy 2017 All Rights Reserved</h1>
+    </div>
+  </div> <!-- end home page -->
+
+  <!-- JavaScript Section -->
+  <script src="/Scripts/lib/jquery/dist/jquery.min.js"></script>
+  <script src="/Scripts/lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
+</body>
+</html>
