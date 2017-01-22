@@ -5,56 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <title>My Demo Mobile Web App</title>
   <!-- CSS Section -->
-  <link rel="stylesheet" href="/Scripts/lib/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="/Scripts/lib/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css" type="text/css">
+   <script src="/Scripts/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="/Scripts/lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
 </head>
 <body>
 
   <!--  Home Page Container -->
-  <div data-role="page" data-theme="a" id="home">
-    <div data-role="header">
-      <h1>Header Content</h1>
-    </div>
-    <div data-role="navbar">
-    <ul>
-      <li><a href="#home" data-icon="home" data-transition="flip">Home</a></li>
-      <li><a href="#contact" data-icon="phone" data-transition="flip">Contact</a></li>
-    </ul>
+  <div  id="calculator" data-role="page" data-theme="b"data-simplecalculator-jspage="calculator">
+    <header data-role="header">
+      <h1>Simple Calculator</h1>
+    </header>
+     <section data-role="content" >
+			<input type="text"  id="displayControl" style="text-align: right;" value="0" />
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><button data-theme="b" id="keyC" data-simplecalculator-tag="C">C</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="keyCe" data-simplecalculator-tag="CE" >CE</button></div>
+			</div>
+			<div class="ui-grid-c">
+				<div class="ui-block-a"><button data-theme="b" id="key7" data-simplecalculator-tag="7">7</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key8" data-simplecalculator-tag="8" >8</button></div>
+				<div class="ui-block-c"><button data-theme="b" id="key9" data-simplecalculator-tag="9" >9</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keyDivide" >/</button></div>
+				<div class="ui-block-a"><button data-theme="b" id="key4" data-simplecalculator-tag="4" >4</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key5" data-simplecalculator-tag="5" >5</button></div>
+				<div class="ui-block-c"><button data-theme="b" id="key6" data-simplecalculator-tag="6" >6</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keyMultiply" >*</button></div>
+				<div class="ui-block-a"><button data-theme="b" id="key1" data-simplecalculator-tag="1" >1</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key2" data-simplecalculator-tag="2" >2</button></div>
+				<div class="ui-block-c"><button data-theme="b" id="key3" data-simplecalculator-tag="3" >3</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keySubtract" >-</button></div>
+				<div class="ui-block-a"><button data-theme="e" id="keyDecimalPoint" data-simplecalculator-tag=".">.</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key0" data-simplecalculator-tag="0" >0</button></div>
+				<div class="ui-block-c"><button data-theme="e" id="keyEquals" >=</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keyAdd" >+</button></div>
+			</div>
+</section>
   </div>
-
-    <!-- Main Content goes here -->
-    <div data-role="main" class="ui-content">
-      <p>Page Content Goes Here</p>
-    </div>
-
-    <div data-role="footer" data-position="fixed">
-      <h1>&copy 2017 All Rights Reserved</h1>
-    </div>
-  </div> <!-- end home page -->
-
-  <!--  Contact Page Container -->
-  <div data-role="page" data-theme="b" id="contact">
-    <div data-role="header">
-      <h1>Header Content</h1>
-    </div>
-    <div data-role="navbar">
-    <ul>
-      <li><a href="#home" data-icon="home" data-transition="flip">Home</a></li>
-      <li><a href="#contact" data-icon="phone" data-transition="flip">Contact</a></li>
-    </ul>
-  </div>
-
-    <!-- Main Content goes here -->
-    <div data-role="main" class="ui-content">
-      <p>Contact Page Content Goes Here</p>
-    </div>
-
-    <div data-role="footer">
-      <h1>&copy 2017 All Rights Reserved</h1>
-    </div>
-  </div> <!-- end home page -->
+   <script src="/Scripts/hideAddressBar.js" type="text/javascript"></script>
+    <script src="/Scripts/app.js" type="text/javascript"></script>
 
   <!-- JavaScript Section -->
-  <script src="/Scripts/lib/jquery/dist/jquery.min.js"></script>
-  <script src="/Scripts/lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
+ 
 </body>
 </html>
