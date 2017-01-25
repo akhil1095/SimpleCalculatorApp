@@ -1,20 +1,17 @@
 var SimpleCalculator = SimpleCalculator || {};
 SimpleCalculator.Pages = SimpleCalculator.Pages || {};
 
-// handles all of the page events and dispatches them to a handler, if one exists
+// handles all of the page events and takes them to a handler if there is any
 SimpleCalculator.Pages.Kernel = function (event) {
 	var that = this,
 		eventType = event.type,
 		pageName = $(this).attr("data-simplecalculator-jspage");
 
-	// if you want to see jQuery Mobile's page event lifecycle, uncomment the line below
-	//console.log("Kernel: "+pageName+", "+eventType);
 	if (SimpleCalculator && SimpleCalculator.Pages && pageName && SimpleCalculator.Pages[pageName] && SimpleCalculator.Pages[pageName][eventType]) {
 		SimpleCalculator.Pages[pageName][eventType].call(that);
 	}};
 
-// hooks all of the page events
-// uses "live" so that the event will stay hooked even if new elements are added later
+// connects all the page events
 SimpleCalculator.Events = function () {
 	$("div[data-simplecalculator-jspage]").on(
 		'pagebeforecreate pagecreate pagebeforeload pagebeforeshow pageshow pagebeforechange pagechange pagebeforehide pagehide pageinit',
@@ -48,9 +45,6 @@ SimpleCalculator.Pages.calculator = function(){
 				case "keyC":
 					SimpleCalculator.Display.clearDisplay();
 					break;
-				case "keyCe":
-					SimpleCalculator.Display.clearError();
-					break;
 				case "keyAdd":
 					SimpleCalculator.Display.setOperator("+");
 					break;
@@ -79,7 +73,7 @@ SimpleCalculator.Pages.calculator = function(){
 	};
 }();
 
-// Display in this case refers to the input type="text" above the buttons
+// Display means input type="text" above the buttons
 SimpleCalculator.Display = function() {
 	var $displayControl,
 		operator,
@@ -131,28 +125,17 @@ SimpleCalculator.Display = function() {
 		getValue = function(){
 			return $displayControl.value + "";
 		},
-		// clears all of the digits
+		// clears all the digits
 		clearDisplay = function() {
 			accumulator = null;
 			equalsPressed = operatorSet = false;
 			setValue("0");
 		},
-		// removes the last digit entered in the display
-		clearError = function(){
-			var display = getValue();
-			// if the string is valid, remove the right most character from it
-			// remember: to be valid, must have a value and length
-			if(display){
-				display = display.slice(0, display.length - 1);
-				display = display? display: "0";
-				setValue(display);
-			}
-		},
-		// handles a numeric or decimal point key being entered
+		//for a numeric or decimal point key being entered
 		enterDigit = function(buttonValue) {
 			var currentlyDisplayed = $displayControl.value;
-			// keep the max digits to a reasonable number
-			if(currentlyDisplayed.length < 20){
+			// keep the max digits=10
+			if(currentlyDisplayed.length < 10){
 				if (operatorSet == true || currentlyDisplayed === "0") {
 					setValue("");
 					operatorSet = false;
@@ -176,14 +159,11 @@ SimpleCalculator.Display = function() {
 			operatorSet = true;
 			accumulator = parseFloat($displayControl.value);
 		},
-		// set the pointer to the HTML element which displays the text
 		init = function(currNumber) {
 			$displayControl = currNumber;
 		};
-	// all of the functions below are visible outside of this function
 	return {
 		clearDisplay: clearDisplay,
-		clearError: clearError,
 		enterDigit: enterDigit,
 		setOperator: setOperator,
 		init: init
