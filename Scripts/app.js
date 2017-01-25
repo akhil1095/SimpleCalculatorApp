@@ -134,8 +134,8 @@ SimpleCalculator.Display = function() {
 		//for a numeric or decimal point key being entered
 		enterDigit = function(buttonValue) {
 			var currentlyDisplayed = $displayControl.value;
-			// keep the max digits=10
-			if(currentlyDisplayed.length < 10){
+			// keep the max digits=15
+			if(currentlyDisplayed.length < 15){
 				if (operatorSet == true || currentlyDisplayed === "0") {
 					setValue("");
 					operatorSet = false;
