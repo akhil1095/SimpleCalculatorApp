@@ -19,7 +19,7 @@ SimpleCalculator.Events = function () {
 		"pageinit", SimpleCalculator.hideAddressBar);
 }();
 
-// this is the handler for all page events
+//handler for all page events
 SimpleCalculator.Pages.calculator = function(){
 	var pageshow = function () {
 		SimpleCalculator.Display.init($("#displayControl")[0]);
@@ -44,6 +44,9 @@ SimpleCalculator.Pages.calculator = function(){
 					break;
 				case "keyC":
 					SimpleCalculator.Display.clearDisplay();
+					break;
+				case "keyBack":
+					SimpleCalculator.Display.backButton();
 					break;
 				case "keyAdd":
 					SimpleCalculator.Display.setOperator("+");
@@ -130,6 +133,15 @@ SimpleCalculator.Display = function() {
 			accumulator = null;
 			equalsPressed = operatorSet = false;
 			setValue("0");
+		},
+		// removes the last digit entered
+		backButton = function(){
+			var display = getValue();
+			if(display){
+				display = display.slice(0, display.length - 1);
+				display = display? display: "0";
+				setValue(display);
+			}
 		},
 		//for a numeric or decimal point key being entered
 		enterDigit = function(buttonValue) {
