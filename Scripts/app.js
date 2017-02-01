@@ -83,7 +83,7 @@ SimpleCalculator.Display = function() {
 		operatorSet = false,
 		equalsPressed = false,
 		accumulator = null,
-
+		
 		add = function(x, y) {
 			return x + y;
 		},
@@ -106,6 +106,9 @@ SimpleCalculator.Display = function() {
 				newVal = 0;
 
 			switch (operator) {
+				case "%":
+				newVal = percentage(accumulator, currNumber)
+					break; 
 				case "+":
 					newVal = add(accumulator, currNumber);
 					break;
@@ -176,6 +179,7 @@ SimpleCalculator.Display = function() {
 		};
 	return {
 		clearDisplay: clearDisplay,
+		backButton: backButton,
 		enterDigit: enterDigit,
 		setOperator: setOperator,
 		init: init
