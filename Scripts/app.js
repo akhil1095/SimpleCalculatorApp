@@ -137,7 +137,7 @@ SimpleCalculator.Display = function() {
 			equalsPressed = operatorSet = false;
 			setValue("0");
 		},
-		// removes the last digit entered
+		//backbutton to remove last digit
 		backButton = function(){
 			var display = getValue();
 			if(display){
